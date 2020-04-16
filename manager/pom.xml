@@ -11,6 +11,8 @@
 
     <artifactId>manager</artifactId>
 
+    <packaging>war</packaging>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>13</maven.compiler.source>
