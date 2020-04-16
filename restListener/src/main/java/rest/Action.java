@@ -1,6 +1,7 @@
 package rest;
 
 import service.ActionService;
+import util.JsonHelper;
 
 import javax.inject.Inject;
 import javax.json.JsonObject;
@@ -10,8 +11,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-@Path("/sonar")
-public class Sonar {
+@Path("/action")
+public class Action {
 
 	@Inject
 	private ActionService actionService;
@@ -20,9 +21,10 @@ public class Sonar {
 	@Path("new")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public void createNewActionFromJson(JsonObject json) {
+	public JsonObject createNewActionFromJson(JsonObject json) {
 		String time = json.getString("time");
 		actionService.addAction(time);
+		return JsonHelper.toJson("time", time);
 	}
 
 }
