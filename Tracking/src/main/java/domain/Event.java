@@ -11,6 +11,15 @@ public class Event {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 
+	@Column(name = "ip")
+	private String ip;
+
+	@Column(name = "type")
+	private String type;
+
+	@Column(name = "link")
+	private String link;
+
 	@Column(name = "time")
 	private String time;
 
@@ -22,6 +31,30 @@ public class Event {
 		this.id = id;
 	}
 
+	public String getIp() {
+		return ip;
+	}
+
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
+	}
+
 	public String getTime() {
 		return time;
 	}
@@ -29,4 +62,5 @@ public class Event {
 	public void setTime(String time) {
 		this.time = time;
 	}
+
 }
