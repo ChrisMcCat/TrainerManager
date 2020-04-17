@@ -1,30 +1,33 @@
 package rest;
 
-import service.ActionService;
+import service.EventService;
 import util.JsonHelper;
 
 import javax.inject.Inject;
 import javax.json.JsonObject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("/action")
-public class Action {
+public class Tracking {
 
 	@Inject
-	private ActionService actionService;
+	private EventService eventService;
 
 	@POST
-	@Path("new")
+	@Path("event")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public JsonObject createNewActionFromJson(JsonObject json) {
 		String time = json.getString("time");
-		actionService.addAction(time);
+		eventService.addEvent(time);
 		return JsonHelper.toJson("time", time);
 	}
 
+	@GET
+	@Path("logs")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String printLast20() {
+		return "Last20Logs";
+	}
 }

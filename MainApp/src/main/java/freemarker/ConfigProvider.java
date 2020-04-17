@@ -11,7 +11,7 @@ public class ConfigProvider {
 
   private Configuration configuration;
 
-  public Configuration getConfiguration() {
+  Configuration getConfiguration() {
 
     if (configuration == null) {
       configuration = new Configuration(Configuration.VERSION_2_3_29);

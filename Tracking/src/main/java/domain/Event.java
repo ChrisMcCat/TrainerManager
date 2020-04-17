@@ -3,8 +3,8 @@ package domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "action")
-public class Action {
+@Table(name = "event")
+public class Event {
 
 	@Id
 	@Column(name = "id")
