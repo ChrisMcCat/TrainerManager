@@ -1,6 +1,6 @@
 package dao;
 
-import domain.entity.Trainer;
+import domain.Trainer;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

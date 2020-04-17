@@ -1,7 +1,7 @@
 package rest;
 
 import service.EventService;
-import util.JsonHelper;
+import util.JsonFormatter;
 
 import javax.inject.Inject;
 import javax.json.JsonObject;
@@ -17,14 +17,15 @@ public class Tracking {
 	@POST
 	@Path("event")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public JsonObject createNewActionFromJson(JsonObject json) {
+	@Produces(MediaType.TEXT_PLAIN)
+	public String createNewActionFromJson(JsonObject json) {
 		String ip = json.getString("ip");
 		String type = json.getString("type");
 		String link = json.getString("link");
 		String time = json.getString("time");
 		long id = eventService.addEvent(ip, type, link, time);
-		return JsonHelper.toJson("id", id);
+		String print = "Id of log: " + id;
+		return print;
 	}
 
 	@GET
